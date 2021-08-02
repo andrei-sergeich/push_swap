@@ -1,7 +1,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h> /* УБЕРИ!!! И НА ПРИНТФЫ ПРОВЕРЬ, НА ИХ ОТСУТСТВИЕ!!!!!!!!!!!! */
+# include <stdio.h> 									/* УБЕРИ!!! И НА ПРИНТФЫ ПРОВЕРЬ, НА ИХ ОТСУТСТВИЕ!!!!!!!!!!!! */
 # include <unistd.h>
 # include <stdarg.h>
 # include <stddef.h>
@@ -21,10 +21,27 @@ void	argv_processing(t_lst **a_stk, char **argv, int len);
 void	sump_checker(char *str);
 void	ft_error(char *str);
 t_lst	*lst_create_new(int data);
-void	lst_add_front(t_lst **head, int data);
 void	lst_add_back(t_lst **head, t_lst *new);
-void	sorting_stacks(t_lst *a_stk, t_lst *b_stk);
+int		lst_size(t_lst *lst);
+t_lst	*lst_get_last(t_lst *lst);
+void	sorting_stacks(t_lst **a_stk, t_lst **b_stk);
 int		is_stak_sorted(t_lst *stack);
+
+void	small_stack_sort(t_lst *a_stk, t_lst *b_stk);
+
+
+void 	swap_stk(t_lst **stack, char stk_name);
+void 	double_swap_stk(t_lst **a_stk, t_lst **b_stk);
+void 	rotate_stk(t_lst **stack, char stk_name);
+void 	double_rotate_stk(t_lst **a_stk, t_lst **b_stk);
+
+
 // void	ft_add_back(t_lst *head, int value);
+void	lst_add_front(t_lst **head, int data);
+void	ft_del_lst(t_lst *lst);
+
+
+
+void 	stack_print(t_lst *stack); 						/* УБЕРИ!!! ПОТОМ!!!!!!!!!!!! */
 
 #endif
