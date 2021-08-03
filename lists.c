@@ -80,9 +80,15 @@ void	ft_del_lst(t_lst *lst)
 	free(lst);
 }
 
+void	lst_add_front(t_lst **lst, t_lst *new)
+{
+	if (!lst || !new)
+		return ;
+	new->next = *lst;
+	*lst = new;
+}
 
-
-void lst_add_front(t_lst **head, int data)
+void new_lst_add_front(t_lst **head, int data)
 {
 	t_lst	*tmp;
 	

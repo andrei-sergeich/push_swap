@@ -35,9 +35,7 @@ void	argv_processing(t_lst **a_stk, char **argv, int len)
 	int		it;
 	int		num;
 	char	**sump;
-//	t_lst	*tmp;
 
-//	tmp = NULL;
 	val = 1;
 	while (val <= len)
 	{
@@ -49,14 +47,7 @@ void	argv_processing(t_lst **a_stk, char **argv, int len)
 		{
 			sump_checker(sump[it]);
 			num = ft_atoi(sump[it]);
-//			tmp = lst_create_new(num);
-//			lst_add_back(a_stk, tmp);
-//			ft_del_lst(tmp);
 			lst_add_back(a_stk, lst_create_new(num));
-//			printf("%p\n", lst_create_new(num));
-//			tmp = NULL;
-//			free(tmp);
-//			printf("%p\n", a_stk);
 			free(sump[it]);
 			it++;
 		}
@@ -79,9 +70,10 @@ int	main(int argc, char **argv)
 		argv_processing(&a_stk, argv, len);
 	}
 	else
-		// exit(0);
+//		 exit(0);
 		ft_error("Error: not enought argc\n");
 	sorting_stacks(&a_stk, &b_stk);
+//	stack_print(b_stk);
 	stack_print(a_stk);
 	return (0);
 }
