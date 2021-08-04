@@ -2,7 +2,9 @@ NAME		=	push_swap
 
 SRCS		=	main.c	push_swap.c	lists.c	sorting.c\
 				stacks_print.c\
-				stacks_operations.c\
+				stack_ops_single.c\
+				stack_ops_double.c\
+				exit_functions.c\
 
 LIB_DIR 	= ./libft
 HEADER 		= ./push_swap.h

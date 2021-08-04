@@ -1,19 +1,13 @@
 #include "push_swap.h"
 
-void	ft_error(char *str)
-{
-	ft_putendl_fd(str, 1);
-	exit(EXIT_FAILURE);
-}
-
 void	sump_checker(char *str)
 {
 	int	it;
 
 	it = 0;
-	if ((ft_strncmp(str, "2147483647", 10) > 0 && ft_strlen(str) == 10) ||
-	(ft_strncmp(str, "-2147483648", 11) > 0 && ft_strlen(str) == 11))
-		ft_error("Error");
+	if ((ft_strncmp(str, "2147483647", 10) > 0 && ft_strlen(str) >= 10) \
+		|| (ft_strncmp(str, "-2147483648", 11) > 0 && ft_strlen(str) >= 11))
+		ft_error("Error: argument not in INT");
 	while (str[it])
 	{
 		if (it == 0 && (str[0] == '+' || str[0] == '-') && str[1])
@@ -31,7 +25,7 @@ void	sump_checker(char *str)
 
 void	duplicate_checker(t_lst *stack)
 {
-	t_lst *tmp;
+	t_lst	*tmp;
 
 	while (stack)
 	{
@@ -59,7 +53,7 @@ void	argv_processing(t_lst **a_stk, char **argv, int len)
 		it = 0;
 		sump = ft_split(argv[val], ' ');
 		if (!sump)
-			ft_error("Error of the sump");
+			ft_error("Error: no malloc");
 		while (sump[it])
 		{
 			sump_checker(sump[it]);
@@ -85,12 +79,10 @@ void	push_swap(int argc, char **argv)
 	{
 		len = argc - 1;
 		argv_processing(&a_stk, argv, len);
-//		stack_print(a_stk);
 		duplicate_checker(a_stk);
 	}
 	else
-		//		 exit(0);
-		ft_error("Error: not enought argc");
+		ft_prompt("Not enough arguments");
 	sorting_stacks(&a_stk, &b_stk);
 	//	stack_print(b_stk);
 	stack_print(a_stk);

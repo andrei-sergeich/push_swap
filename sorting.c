@@ -104,6 +104,9 @@ void	sorting_stacks(t_lst **a_stk, t_lst **b_stk)
 //		rev_rotate_stk(a_stk, 'a');
 //		push_on_stk(b_stk, a_stk, 'b');
 //		push_on_stk(b_stk, a_stk, 'b');
+//		double_swap_stk(a_stk, b_stk);
+//		double_rotate_stk(a_stk, b_stk);
+//		double_rev_rotate_stk(a_stk, b_stk);
 //		push_on_stk(a_stk, b_stk, 'a');
 		(*b_stk) = lst_create_new(6);
 	}

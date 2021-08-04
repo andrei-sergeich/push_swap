@@ -8,12 +8,9 @@ t_lst	*lst_create_new(int data)
 	if (element == NULL)
 		return (NULL);
 	element->value = data;
-	// tmp->index = 0;
-	// tmp->flag = 0;
 	element->next = NULL;
 	return (element);
 }
-
 
 t_lst	*lst_get_last(t_lst *lst)
 {
@@ -28,7 +25,7 @@ t_lst	*lst_get_last(t_lst *lst)
 // {
 // 	t_lst *last;
 // 	t_lst *tmp;
-	
+
 // 	if (!head)
 // 		ft_error("No list\n");
 // 	last = getLast(head);
@@ -52,7 +49,6 @@ int	lst_size(t_lst *lst)
 	}
 	return (x);
 }
-
 
 void	lst_add_back(t_lst **head, t_lst *new)
 {
@@ -88,18 +84,16 @@ void	lst_add_front(t_lst **lst, t_lst *new)
 	*lst = new;
 }
 
-void new_lst_add_front(t_lst **head, int data)
+void	new_lst_add_front(t_lst **head, int data)
 {
 	t_lst	*tmp;
-	
+
 	if (!head)
-		ft_error("No list\n");
+		ft_error("No list");
 	tmp = (t_lst *)malloc(sizeof(t_lst));
 	if (!tmp)
-		ft_error("No malloc\n");
+		ft_error("No malloc");
 	tmp->value = data;
-	// tmp->index = 0;
-	// tmp->flag = 0;
 	tmp->next = (*head);
 	(*head) = tmp;
 }
