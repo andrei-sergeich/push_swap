@@ -11,7 +11,7 @@ int	ft_atoi(const char *str)
 {
 	int		in;
 	int		x;
-	long 	num;
+	long	num;
 
 	in = 0;
 	x = 1;

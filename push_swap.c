@@ -2,7 +2,7 @@
 
 void	ft_error(char *str)
 {
-	ft_putstr_fd(str, 1);
+	ft_putendl_fd(str, 1);
 	exit(EXIT_FAILURE);
 }
 
@@ -13,7 +13,7 @@ void	sump_checker(char *str)
 	it = 0;
 	if ((ft_strncmp(str, "2147483647", 10) > 0 && ft_strlen(str) == 10) ||
 	(ft_strncmp(str, "-2147483648", 11) > 0 && ft_strlen(str) == 11))
-		ft_error("Error\n");
+		ft_error("Error");
 	while (str[it])
 	{
 		if (it == 0 && (str[0] == '+' || str[0] == '-') && str[1])
@@ -24,8 +24,25 @@ void	sump_checker(char *str)
 				it += 1;
 		}
 		if (!ft_isdigit(str[it]))
-			ft_error("Error: not number in the sump\n");
+			ft_error("Error: not number in the sump");
 		it++;
+	}
+}
+
+void	duplicate_checker(t_lst *stack)
+{
+	t_lst *tmp;
+
+	while (stack)
+	{
+		tmp = stack->next;
+		while (tmp)
+		{
+			if (stack->value == tmp->value)
+				ft_error("Error: duplicate find");
+			tmp = tmp->next;
+		}
+		stack = stack->next;
 	}
 }
 
@@ -42,7 +59,7 @@ void	argv_processing(t_lst **a_stk, char **argv, int len)
 		it = 0;
 		sump = ft_split(argv[val], ' ');
 		if (!sump)
-			ft_error("Error of the sump\n");
+			ft_error("Error of the sump");
 		while (sump[it])
 		{
 			sump_checker(sump[it]);
@@ -68,10 +85,12 @@ void	push_swap(int argc, char **argv)
 	{
 		len = argc - 1;
 		argv_processing(&a_stk, argv, len);
+//		stack_print(a_stk);
+		duplicate_checker(a_stk);
 	}
 	else
 		//		 exit(0);
-		ft_error("Error: not enought argc\n");
+		ft_error("Error: not enought argc");
 	sorting_stacks(&a_stk, &b_stk);
 	//	stack_print(b_stk);
 	stack_print(a_stk);
