@@ -1,11 +1,11 @@
 NAME		=	push_swap
 
-SRCS		=	main.c	push_swap.с	lists.c	sorting.c	\
-				stacks_operations.c\
+SRCS		=	main.c	push_swap.c	lists.c	sorting.c\
 				stacks_print.c\
+				stacks_operations.c\
 
-LIB_DIR 	= .\libft
-HEADER 		= .\push_swap.h
+LIB_DIR 	= ./libft
+HEADER 		= ./push_swap.h
 
 OBJS		=	$(patsubst %.c,%.o,$(SRCS))
 
@@ -16,7 +16,7 @@ all:		$(NAME)
 
 $(NAME):	$(OBJS)
 			@make -C $(LIB_DIR)
-#			@cp $(LIB_DIR)\libft.a .\libft.a
+			@cp $(LIB_DIR)/libft.a ./
 			gcc libft.a $(OBJS) -o $(NAME)
 			@echo all done, my Master!
 # @make re -C $(LIB_DIR)
@@ -24,7 +24,7 @@ $(NAME):	$(OBJS)
 # @make bonus -C $(LIB_DIR)
 
 %.o:		%.c $(HEADER)
-			gcc $(CFLAGS) $(OPTFLAGS) -c $< -o $@
+			gcc $(CFLAGS) $(OPTFLAGS) -I $(HEADER) -c $< -o $@
 
 norm:
 			norminette .
@@ -39,7 +39,7 @@ clean:
 
 fclean:		clean
 			@rm -f $(NAME)
-			@rm -f .\libft.a
+			@rm -f libft.a
 			@make fclean -C $(LIB_DIR)
 			@echo all terminated, my Master!
 

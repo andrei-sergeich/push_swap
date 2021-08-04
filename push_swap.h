@@ -17,6 +17,7 @@ typedef struct s_lst
 }	t_lst;
 
 int		main(int argc, char **argv);
+void	push_swap(int argc, char **argv);
 void	argv_processing(t_lst **a_stk, char **argv, int len);
 void	sump_checker(char *str);
 void	ft_error(char *str);

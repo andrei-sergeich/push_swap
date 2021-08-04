@@ -9,9 +9,9 @@ static int	positive_or_negative(char in, int x)
 
 int	ft_atoi(const char *str)
 {
-	int			in;
-	int			x;
-	long int	num;
+	int		in;
+	int		x;
+	long 	num;
 
 	in = 0;
 	x = 1;
