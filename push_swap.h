@@ -11,8 +11,8 @@
 typedef struct s_lst
 {
 	int				value;
-	int				index;
-	int				flag;
+//	int				index;
+//	int				flag;
 	struct s_lst	*next;
 }	t_lst;
 
@@ -30,11 +30,11 @@ void	lst_add_front(t_lst **lst, t_lst *new);
 int		lst_size(t_lst *lst);
 
 void	sorting_stacks(t_lst **a_stk, t_lst **b_stk);
-int		is_stk_sorted(t_lst *stack);
-
+void	is_stk_sorted(t_lst *stack);
 void	small_stk_sort(t_lst **stack);
 int		max_value_finder(t_lst *stack);
-int		min_value_finder(t_lst *stack);
+void	lets_sort(t_lst **a_stk, t_lst **b_stk);
+int		find_best_place(t_lst *a_stk, t_lst *b_stk);
 
 void	swap_stk(t_lst **stack, char stk_name);
 void	double_swap_stk(t_lst **a_stk, t_lst **b_stk);
@@ -49,6 +49,7 @@ void	push_on_stk(t_lst **to, t_lst **from, char stk_name);
 //void	new_lst_add_front(t_lst **head, int data);
 //void	ft_del_lst(t_lst *lst);
 
-void	stack_print(t_lst *stack);				/* УБЕРИ!!! ПОТОМ!!!!!!!!!!!! */
+void	stack_print(t_lst *stack, char name);	/* УБЕРИ!!! ПОТОМ!!!!!!!!!!!! */
+void 	stacks_print(t_lst *a, t_lst *b);		/* УБЕРИ!!! ПОТОМ!!!!!!!!!!!! */
 
 #endif

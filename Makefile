@@ -1,10 +1,12 @@
 NAME		=	push_swap
 
-SRCS		=	main.c	push_swap.c	lists.c	sorting.c\
-				stacks_print.c\
-				stack_ops_single.c\
-				stack_ops_double.c\
+SRCS		=	main.c	push_swap.c	lists.c\
+				sorting.c	lets_sort.c\
+				stack_ops_single.c	stack_ops_double.c\
 				exit_functions.c\
+				\
+				\
+				stacks_print.c\
 
 LIB_DIR 	= ./libft
 HEADER 		= ./push_swap.h
@@ -32,7 +34,7 @@ norm:
 			norminette .
 
 test:
-			./push_swap -123 +254 "663    734"
+			./push_swap 6 11 35 68 111 268
 
 clean:
 			@rm -f $(OBJS)

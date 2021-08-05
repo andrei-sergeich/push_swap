@@ -2,13 +2,14 @@
 
 void	swap_stk(t_lst **stack, char stk_name)
 {
-	int	save;
+	t_lst	*tmp;
 
 	if ((*stack) != NULL && (*stack)->next != NULL)
 	{
-		save = (*stack)->value;
-		(*stack)->value = (*stack)->next->value;
-		(*stack)->next->value = save;
+		tmp = (*stack)->next;
+		(*stack)->next = (*stack)->next->next;
+		tmp->next = (*stack);
+		(*stack) = tmp;
 	}
 	if (stk_name == 'a')
 		ft_putendl_fd("sa", 1);

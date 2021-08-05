@@ -60,6 +60,7 @@ CMakeLists.txt
 *.pdf
 .DS_Store
 .DS_Store?
+*.py
 # .out
 # .out?
 # .o
