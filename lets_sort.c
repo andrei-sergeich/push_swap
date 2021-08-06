@@ -53,10 +53,10 @@ void	lets_sort(t_lst **a_stk, t_lst **b_stk)
 		while (find_best_place(*a_stk, *b_stk) != 0)
 		{
 //			printf("%d\n\n", find_best_place(*a_stk, *b_stk));
-//			if (find_best_place(*a_stk, *b_stk) > lst_size(*a_stk) / 2)
+			if (find_best_place(*a_stk, *b_stk) > lst_size(*a_stk) / 2)
+				rev_rotate_stk(a_stk, 'a');
+			else
 				rotate_stk(a_stk, 'a');
-//			else
-//				rev_rotate_stk(a_stk, 'a');
 		}
 		push_on_stk(a_stk, b_stk, 'a');
 	}
