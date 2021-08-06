@@ -7,8 +7,8 @@ void 	stack_print(t_lst *stack, char name)
 		printf("%d\n", stack->value);
 		stack = stack->next;
 	}
-	printf("__\n");
-	printf("%c", name);
+	printf("___\n");
+	printf(" %c", name);
 }
 
 void 	stacks_print(t_lst *a, t_lst *b)
@@ -17,7 +17,7 @@ void 	stacks_print(t_lst *a, t_lst *b)
 	{
 		if (a != NULL)
 		{
-			printf("%d\t", a->value);
+			printf("%d\t\t", a->value);
 			a = a->next;
 		}
 		if (b != NULL)
@@ -27,6 +27,6 @@ void 	stacks_print(t_lst *a, t_lst *b)
 		}
 		printf("\n");
 	}
-	printf("__\t__\n");
-	printf("A\tB\n");
+	printf("___\t\t___\n");
+	printf(" A\t\t B\n");
 }

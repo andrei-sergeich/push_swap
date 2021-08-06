@@ -2,33 +2,21 @@
 
 int	find_best_place(t_lst *a_stk, t_lst *b_stk)
 {
-	int	tmp;
-	int	best;
+	int	best_value;
 	int	best_ind;
 	int	it;
 
 	best_ind = 0;
-	best = b_stk->value - a_stk->value;
-	a_stk = a_stk->next;
-	it = 1;
+	it = 0;
+	best_value = a_stk->value;
 	while (a_stk)
 	{
-		tmp = b_stk->value - a_stk->value;
-		if (tmp > 0)
+		if ((best_value > a_stk->value && best_value < b_stk->value) \
+			|| (a_stk->value > b_stk->value && (best_value < b_stk->value \
+			|| best_value > a_stk->value)))
 		{
-			if (tmp < best)
-			{
-				best_ind = it;
-				best = tmp;
-			}
-		}
-		else
-		{
-			if (tmp > best)
-			{
-				best_ind = it;
-				best = tmp;
-			}
+			best_ind = it;
+			best_value = a_stk->value;
 		}
 		a_stk = a_stk->next;
 		it++;
@@ -36,26 +24,41 @@ int	find_best_place(t_lst *a_stk, t_lst *b_stk)
 	return (best_ind);
 }
 
+void	lets_sort_any_stk(t_lst **stack, char stk_name)
+{
+	int	max_index;
+	int	size;
+
+	max_index = max_value_finder(*stack);
+	size = lst_size(*stack);
+	if (max_index > size / 2)
+	{
+		while (is_stk_sorted(*stack) != 0)
+			rev_rotate_stk(stack, stk_name);
+	}
+	else
+	{
+		while (is_stk_sorted(*stack) != 0)
+			rotate_stk(stack, stk_name);
+	}
+}
+
 void	lets_sort(t_lst **a_stk, t_lst **b_stk)
 {
-	int	best_place;
+//	int	best_place;
 
-//	while (lst_size(*b_stk))
+	while (lst_size(*b_stk))
 	{
-		best_place = find_best_place(*a_stk, *b_stk);
-		printf("%d\n\n", best_place);
-//		if (best_place == lst_size(*a_stk) - 1)
-//		{
-//			push_on_stk(a_stk, b_stk, 'a');
-//			rotate_stk(a_stk, 'a');
-//		}
-//		else
-//		{
-//			while (best_place > 0)
-//			{
-//				rotate_stk(a_stk, 'a');
-//				best_place--;
-//			}
-//		}
+//		best_place = find_best_place(*a_stk, *b_stk);
+		while (find_best_place(*a_stk, *b_stk) != 0)
+		{
+//			printf("%d\n\n", find_best_place(*a_stk, *b_stk));
+//			if (find_best_place(*a_stk, *b_stk) > lst_size(*a_stk) / 2)
+				rotate_stk(a_stk, 'a');
+//			else
+//				rev_rotate_stk(a_stk, 'a');
+		}
+		push_on_stk(a_stk, b_stk, 'a');
 	}
+	lets_sort_any_stk(a_stk, 'a');
 }

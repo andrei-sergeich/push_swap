@@ -20,9 +20,9 @@ all:		$(NAME)
 
 $(NAME):	$(OBJS)
 			@make -C $(LIB_DIR)
-			@cp $(LIB_DIR)/libft.a ./
-			gcc libft.a $(OBJS) -o $(NAME)
+			gcc $(LIB_DIR)/libft.a $(OBJS) -o $(NAME)
 			@echo all done, my Master!
+# @cp $(LIB_DIR)/libft.a ./
 # @make re -C $(LIB_DIR)
 # @make fclean -C $(LIB_DIR)
 # @make bonus -C $(LIB_DIR)
@@ -34,7 +34,10 @@ norm:
 			norminette .
 
 test:
-			./push_swap 6 11 35 68 111 268
+			./push_swap 66 151 35 68 111
+
+checker:
+			ARG=`ruby -e "puts (1..5).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checker_Mac $ARG ; ./push_swap $ARG | wc -l
 
 clean:
 			@rm -f $(OBJS)

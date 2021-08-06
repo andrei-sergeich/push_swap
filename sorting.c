@@ -23,15 +23,15 @@ int	max_value_finder(t_lst *stack)
 	return (max_ind);
 }
 
-void	is_stk_sorted(t_lst *stack)
+int	is_stk_sorted(t_lst *stack)
 {
 	while (stack->next)
 	{
 		if (stack->value > stack->next->value)
-			return ;
+			return (1);
 		stack = stack->next;
 	}
-	exit (EXIT_SUCCESS);
+	return (0);
 }
 
 void	small_stk_sort(t_lst **stack)
@@ -56,7 +56,8 @@ void	sorting_stacks(t_lst **a_stk, t_lst **b_stk)
 {
 	int	lst_len;
 
-	is_stk_sorted(*a_stk);
+	if (is_stk_sorted(*a_stk) == 0)
+		exit (EXIT_SUCCESS);
 	lst_len = lst_size(*a_stk);
 	while (lst_len-- > 3)
 		push_on_stk(b_stk, a_stk, 'b');
