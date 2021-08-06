@@ -14,9 +14,17 @@ int	find_best_place(t_lst *a_stk, t_lst *b_stk)
 	while (a_stk)
 	{
 		tmp = b_stk->value - a_stk->value;
-		if (tmp < best)
+		if (tmp > 0)
 		{
-			if (tmp > 0)
+			if (tmp < best)
+			{
+				best_ind = it;
+				best = tmp;
+			}
+		}
+		else
+		{
+			if (tmp > best)
 			{
 				best_ind = it;
 				best = tmp;
@@ -32,22 +40,22 @@ void	lets_sort(t_lst **a_stk, t_lst **b_stk)
 {
 	int	best_place;
 
-	while (lst_size(*b_stk))
+//	while (lst_size(*b_stk))
 	{
 		best_place = find_best_place(*a_stk, *b_stk);
 		printf("%d\n\n", best_place);
-		if (best_place == lst_size(*a_stk) - 1)
-		{
-			push_on_stk(a_stk, b_stk, 'a');
-			rotate_stk(a_stk, 'a');
-		}
-		else
-		{
-			while (best_place > 0)
-			{
-				rotate_stk(a_stk, 'a');
-				best_place--;
-			}
-		}
+//		if (best_place == lst_size(*a_stk) - 1)
+//		{
+//			push_on_stk(a_stk, b_stk, 'a');
+//			rotate_stk(a_stk, 'a');
+//		}
+//		else
+//		{
+//			while (best_place > 0)
+//			{
+//				rotate_stk(a_stk, 'a');
+//				best_place--;
+//			}
+//		}
 	}
 }

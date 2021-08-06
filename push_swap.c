@@ -85,5 +85,5 @@ void	push_swap(int argc, char **argv)
 		ft_prompt("Not enough arguments");
 	sorting_stacks(&a_stk, &b_stk);
 	stacks_print(a_stk, b_stk);
-	stack_print(a_stk, 'A');
+//	stack_print(a_stk, 'A');
 }
