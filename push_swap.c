@@ -5,8 +5,8 @@ void	sump_checker(char *str)
 	int	it;
 
 	it = 0;
-	if (((ft_strncmp(str, "2147483647", 10) > 0 || ft_strlen(str) > 10)) \
-		&& ((ft_strncmp(str, "-2147483648", 11) > 0 || ft_strlen(str) > 11)))
+	if (((ft_strncmp(str, "2147483647", 10) > 0 && ft_strlen(str) >= 10)) \
+		|| ((ft_strncmp(str, "-2147483648", 11) > 0 && ft_strlen(str) >= 11)))
 		ft_error("Error: argument not in INT");
 	while (str[it])
 	{

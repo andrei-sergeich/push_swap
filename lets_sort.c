@@ -89,7 +89,12 @@ void	lets_sort(t_lst **a_stk, t_lst **b_stk)
 	while (lst_size(*b_stk))
 	{
 		while (find_best_index_in_b(*a_stk, *b_stk) != 0)
-			rotate_stk(b_stk, 'b');
+//		{
+//			if (find_best_index_in_b(*a_stk, *b_stk) > lst_size(*b_stk) / 2)
+//				rev_rotate_stk(b_stk, 'b');
+//			else
+				rotate_stk(b_stk, 'b');
+//		}
 		while (find_best_place_in_a(*a_stk, *b_stk) != 0)
 		{
 			if (find_best_place_in_a(*a_stk, *b_stk) > lst_size(*a_stk) / 2)

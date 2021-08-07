@@ -11,10 +11,18 @@
 typedef struct s_lst
 {
 	int				value;
-//	int				index;
-//	int				flag;
 	struct s_lst	*next;
 }	t_lst;
+
+typedef struct s_actions
+{
+	int	ra;
+	int	rra;
+	int	rb;
+	int	rrb;
+	int	total;
+	int	mode;
+}	t_actions;
 
 int		main(int argc, char **argv);
 void	push_swap(int argc, char **argv);
