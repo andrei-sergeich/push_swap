@@ -6,6 +6,7 @@
 # include <stdarg.h>
 # include <stddef.h>
 # include <stdlib.h>
+# include "limits.h"
 # include "libft/libft.h"
 
 typedef struct s_lst
@@ -46,6 +47,9 @@ void	lets_sort_any_stk(t_lst **stack, char stk_name);
 int		find_best_place_in_a(t_lst *a_stk, t_lst *b_stk);
 int		find_count_of_step_in_b(t_lst *stack, int value);
 int		find_best_index_in_b(t_lst *a_stk, t_lst *b_stk);
+int		find_best_actions(t_lst *a_stk, t_lst *b_stk);
+void	actions_count_init(t_actions *min_quant_actions);
+void	find_best_way(t_actions *cur_actions);
 
 void	swap_stk(t_lst **stack, char stk_name);
 void	double_swap_stk(t_lst **a_stk, t_lst **b_stk);
