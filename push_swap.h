@@ -35,7 +35,7 @@ void	small_stk_sort(t_lst **stack);
 int		max_value_finder(t_lst *stack);
 void	lets_sort(t_lst **a_stk, t_lst **b_stk);
 void	lets_sort_any_stk(t_lst **stack, char stk_name);
-int		find_best_place_in_stk(t_lst *a_stk, t_lst *b_stk);
+int		find_best_place_in_a(t_lst *a_stk, t_lst *b_stk);
 int		find_count_of_step_in_b(t_lst *stack, int value);
 int		find_best_index_in_b(t_lst *a_stk, t_lst *b_stk);
 

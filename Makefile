@@ -34,7 +34,7 @@ norm:
 			norminette .
 
 test:
-			./push_swap 66 151 35 68 111
+			./push_swap 2147483647 -2147483648
 
 checker:
 			ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checker_Mac $ARG ; ./push_swap $ARG | wc -l

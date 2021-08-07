@@ -90,10 +90,18 @@ void	new_lst_add_front(t_lst **head, int data)
 
 	if (!head)
 		ft_error("No list");
-	tmp = (t_lst *)malloc(sizeof(t_lst));
-	if (!tmp)
-		ft_error("No malloc");
-	tmp->value = data;
-	tmp->next = (*head);
-	(*head) = tmp;
+	if (*head)
+	{
+		tmp = (t_lst *) malloc(sizeof(t_lst));
+		if (tmp)
+		{
+			tmp->value = data;
+			tmp->next = (*head);
+			(*head) = tmp;
+		}
+		else
+			ft_error("No malloc");
+	}
+	else
+		ft_error("No head of lst");
 }
