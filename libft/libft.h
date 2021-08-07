@@ -56,5 +56,6 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 char	*ft_strcpy(char *dst, const char *src);
 void	ft_strclr(char *s);
+int		ft_find_max(int a, int b);
 
 #endif
