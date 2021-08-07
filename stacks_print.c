@@ -20,10 +20,18 @@ void 	stacks_print(t_lst *a, t_lst *b)
 			printf("%d\t\t", a->value);
 			a = a->next;
 		}
+		else if (a == NULL)
+		{
+			printf("*\t\t");
+		}
 		if (b != NULL)
 		{
 			printf("%d", b->value);
 			b = b->next;
+		}
+		else if (b == NULL)
+		{
+			printf("*");
 		}
 		printf("\n");
 	}

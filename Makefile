@@ -37,7 +37,7 @@ test:
 			./push_swap 66 151 35 68 111
 
 checker:
-			ARG=`ruby -e "puts (1..5).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checker_Mac $ARG ; ./push_swap $ARG | wc -l
+			ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checker_Mac $ARG ; ./push_swap $ARG | wc -l
 
 clean:
 			@rm -f $(OBJS)
