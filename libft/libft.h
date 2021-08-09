@@ -57,5 +57,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 char	*ft_strcpy(char *dst, const char *src);
 void	ft_strclr(char *s);
 int		ft_find_max(int a, int b);
+void	ft_error(char *str);
+void	ft_prompt(char *str);
+int		ft_atoi_only_for_num(const char *str);
 
 #endif
