@@ -167,7 +167,7 @@ void	lets_sort(t_lst **a_stk, t_lst **b_stk)
 	while (lst_size(*b_stk))
 	{
 		min_quantity_actions = find_best_actions(*a_stk, *b_stk);
-		printf("%d\n\n", min_quantity_actions);
+//		printf("%d\n\n", min_quantity_actions);
 		while (find_best_index_in_b(*a_stk, *b_stk) != 0)
 //		{
 //			if (find_best_index_in_b(*a_stk, *b_stk) > lst_size(*b_stk) / 2)
