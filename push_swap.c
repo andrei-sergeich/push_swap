@@ -1,8 +1,8 @@
 #include "push_swap.h"
 
-void	duplicate_checker(t_lst *stack)
+void	duplicate_checker(t_list *stack)
 {
-	t_lst	*tmp;
+	t_list	*tmp;
 
 	while (stack)
 	{
@@ -17,7 +17,7 @@ void	duplicate_checker(t_lst *stack)
 	}
 }
 
-void	argv_processing(t_lst **a_stk, char **argv, int len)
+void	argv_processing(t_list **a_stk, char **argv, int len)
 {
 	int		val;
 	int		it;
@@ -34,7 +34,7 @@ void	argv_processing(t_lst **a_stk, char **argv, int len)
 		while (sump[it])
 		{
 			num = ft_atoi_only_for_num(sump[it]);
-			lst_add_back(a_stk, lst_create_new(num));
+			ft_lstadd_back(a_stk, ft_lstnew(num));
 			free(sump[it]);
 			it++;
 		}
@@ -46,8 +46,8 @@ void	argv_processing(t_lst **a_stk, char **argv, int len)
 void	push_swap(int argc, char **argv)
 {
 	int		len;
-	t_lst	*a_stk;
-	t_lst	*b_stk;
+	t_list	*a_stk;
+	t_list	*b_stk;
 
 	a_stk = NULL;
 	b_stk = NULL;

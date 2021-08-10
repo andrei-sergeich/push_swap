@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	stack_print(t_lst *stack, char name)
+void	stack_print(t_list *stack, char name)
 {
 	while (stack)
 	{
@@ -11,7 +11,7 @@ void	stack_print(t_lst *stack, char name)
 	printf(" %c", name);
 }
 
-void	stacks_print(t_lst *a, t_lst *b)
+void	stacks_print(t_list *a, t_list *b)
 {
 	while (a || b)
 	{

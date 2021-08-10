@@ -7,7 +7,7 @@
 
 typedef struct s_list
 {
-	void			*content;
+	int				value;
 	struct s_list	*next;
 }	t_list;
 
@@ -45,20 +45,23 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-t_list	*ft_lstnew(void *content);
+t_list	*ft_lstnew(int content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
-void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+void	ft_lstdelone(t_list *lst, int (*del)(int));
+void	ft_lstclear(t_list **lst, int (*del)(int));
+void	ft_lstiter(t_list *lst, int (*f)(int));
+t_list	*ft_lstmap(t_list *lst, int (*f)(int), int (*del)(int));
 char	*ft_strcpy(char *dst, const char *src);
 void	ft_strclr(char *s);
 int		ft_find_max(int a, int b);
 void	ft_error(char *str);
 void	ft_prompt(char *str);
 int		ft_atoi_only_for_num(const char *str);
+int		ft_lstfindmax_val(t_list *lst);
+int		ft_lstfindmin_val(t_list *lst);
+int		ft_lstfind_ind_of_max_value(t_list *lst);
 
 #endif

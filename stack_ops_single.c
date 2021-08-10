@@ -1,8 +1,8 @@
 #include "push_swap.h"
 
-void	swap_stk(t_lst **stack, char stk_name)
+void	swap_stk(t_list **stack, char stk_name)
 {
-	t_lst	*tmp;
+	t_list	*tmp;
 
 	if ((*stack) != NULL && (*stack)->next != NULL)
 	{
@@ -17,10 +17,10 @@ void	swap_stk(t_lst **stack, char stk_name)
 		ft_putendl_fd("sb", 1);
 }
 
-void	rotate_stk(t_lst **stack, char stk_name)
+void	rotate_stk(t_list **stack, char stk_name)
 {
-	t_lst	*tmp;
-	t_lst	*new_head;
+	t_list	*tmp;
+	t_list	*new_head;
 
 	if ((*stack) != NULL && (*stack)->next != NULL)
 	{
@@ -38,10 +38,10 @@ void	rotate_stk(t_lst **stack, char stk_name)
 		ft_putendl_fd("rb", 1);
 }
 
-void	rev_rotate_stk(t_lst **stack, char stk_name)
+void	rev_rotate_stk(t_list **stack, char stk_name)
 {
-	t_lst	*tmp;
-	t_lst	*current;
+	t_list	*tmp;
+	t_list	*current;
 
 	if ((*stack) != NULL && (*stack)->next != NULL)
 	{
@@ -62,15 +62,15 @@ void	rev_rotate_stk(t_lst **stack, char stk_name)
 		ft_putendl_fd("rrb", 1);
 }
 
-void	push_on_stk(t_lst **to, t_lst **from, char stk_name)
+void	push_on_stk(t_list **to, t_list **from, char stk_name)
 {
-	t_lst	*tmp;
+	t_list	*tmp;
 
 	if ((*from) != NULL)
 	{
 		tmp = *from;
 		*from = (*from)->next;
-		lst_add_front(to, tmp);
+		ft_lstadd_front(to, tmp);
 	}
 	if (stk_name == 'a')
 		ft_putendl_fd("pa", 1);

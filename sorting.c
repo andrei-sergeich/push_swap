@@ -1,29 +1,6 @@
 #include "push_swap.h"
 
-int	max_value_finder(t_lst *stack)
-{
-	int	max_value;
-	int	max_ind;
-	int	it;
-
-	max_ind = 0;
-	max_value = stack->value;
-	stack = stack->next;
-	it = 1;
-	while (stack)
-	{
-		if (stack->value > max_value)
-		{
-			max_ind = it;
-			max_value = stack->value;
-		}
-		stack = stack->next;
-		it++;
-	}
-	return (max_ind);
-}
-
-int	is_stk_sorted(t_lst *stack)
+int	is_stk_sorted(t_list *stack)
 {
 	while (stack->next)
 	{
@@ -34,15 +11,15 @@ int	is_stk_sorted(t_lst *stack)
 	return (0);
 }
 
-void	small_stk_sort(t_lst **stack)
+void	small_stk_sort(t_list **stack)
 {
 	int	max_index;
 
-	if (lst_size(*stack) == 2 && (*stack)->value > (*stack)->next->value)
+	if (ft_lstsize(*stack) == 2 && (*stack)->value > (*stack)->next->value)
 		swap_stk(stack, 'a');
 	else
 	{
-		max_index = max_value_finder(*stack);
+		max_index = ft_lstfind_ind_of_max_value(*stack);
 		if (max_index == 0)
 			rotate_stk(stack, 'a');
 		else if (max_index == 1)
@@ -52,7 +29,7 @@ void	small_stk_sort(t_lst **stack)
 	}
 }
 
-void	sorting_stacks(t_lst **a_stk, t_lst **b_stk)
+void	sorting_stacks(t_list **a_stk, t_list **b_stk)
 {
 	int		lst_len;
 	int		med_value;
@@ -60,9 +37,10 @@ void	sorting_stacks(t_lst **a_stk, t_lst **b_stk)
 
 	if (is_stk_sorted(*a_stk) == 0)
 		exit (EXIT_SUCCESS);
-	lst_len = lst_size(*a_stk);
+	lst_len = ft_lstsize(*a_stk);
 	med_len = lst_len / 2;
-	med_value = ((ft_lstfindmax_val(*a_stk) - ft_lstfindmin_val(*a_stk)) / 2) + 1;
+	med_value = ((ft_lstfindmax_val(*a_stk) - \
+					ft_lstfindmin_val(*a_stk)) / 2) + 1;
 	while (lst_len > 3)
 	{
 		if (med_value < (*a_stk)->value && lst_len > med_len && med_len > 100)

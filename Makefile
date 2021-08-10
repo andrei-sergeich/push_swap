@@ -1,9 +1,10 @@
 NAME		=	push_swap
 
-SRCS		=	main.c	push_swap.c	lists.c\
+SRCS		=	main.c		push_swap.c\
 				sorting.c	lets_sort.c\
-				stack_ops_single.c	stack_ops_double.c\
-				\
+				modes.c\
+				stack_ops_single.c\
+				stack_ops_double.c\
 				\
 				\
 				stacks_print.c\
@@ -23,10 +24,6 @@ $(NAME):	$(OBJS)
 			gcc $(LIB_DIR)/libft.a $(OBJS) -o $(NAME)
 			clear
 			@echo all done, my Master!
-# @cp $(LIB_DIR)/libft.a ./
-# @make re -C $(LIB_DIR)
-# @make fclean -C $(LIB_DIR)
-# @make bonus -C $(LIB_DIR)
 
 %.o:		%.c $(HEADER)
 			gcc $(CFLAGS) $(OPTFLAGS) -I $(HEADER) -c $< -o $@
