@@ -51,14 +51,11 @@ void	push_swap(int argc, char **argv)
 
 	a_stk = NULL;
 	b_stk = NULL;
-	if (argc > 1)
-	{
-		len = argc - 1;
-		argv_processing(&a_stk, argv, len);
-		duplicate_checker(a_stk);
-	}
-	else
-		ft_prompt("Not enough arguments");
+	if (argc == 1)
+		ft_prompt("No arguments");
+	len = argc - 1;
+	argv_processing(&a_stk, argv, len);
+	duplicate_checker(a_stk);
 	sorting_stacks(&a_stk, &b_stk);
 //	stacks_print(a_stk, b_stk);
 //	stack_print(a_stk, 'A');

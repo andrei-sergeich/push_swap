@@ -42,66 +42,38 @@ void	lst_add_back(t_lst **head, t_lst *new)
 		*head = new;
 }
 
-void	lst_add_front(t_lst **lst, t_lst *new)
+void	lst_add_front(t_lst **head, t_lst *new)
 {
-	if (!lst || !new)
+	if (!head || !new)
 		return ;
-	new->next = *lst;
-	*lst = new;
+	new->next = *head;
+	*head = new;
 }
 
-void	ft_del_lst(t_lst *lst)
+int	ft_lstfindmax_val(t_lst *lst)
 {
-	if (!lst)
-		return ;
-	lst->value = 0;
-	lst = NULL;
-	free(lst);
-}
+	int	max_value;
 
-void	new_lst_add_front(t_lst **head, int data)
-{
-	t_lst	*tmp;
-
-	if (!head)
-		ft_error("No list");
-	if (*head)
+	max_value = lst->value;
+	while (lst)
 	{
-		tmp = (t_lst *) malloc(sizeof(t_lst));
-		if (tmp)
-		{
-			tmp->value = data;
-			tmp->next = (*head);
-			(*head) = tmp;
-		}
-		else
-			ft_error("No malloc");
-	}
-	else
-		ft_error("No head of lst");
-}
-
-t_lst	*lst_get_last(t_lst *lst)
-{
-	if (!lst)
-		return (NULL);
-	while (lst->next)
+		if (max_value < lst->value)
+			max_value = lst->value;
 		lst = lst->next;
-	return (lst);
+	}
+	return (max_value);
 }
 
-// void	ft_add_back(t_lst *head, int value)
-// {
-// 	t_lst *last;
-// 	t_lst *tmp;
+int	ft_lstfindmin_val(t_lst *lst)
+{
+	int	min_value;
 
-// 	if (!head)
-// 		ft_error("No list\n");
-// 	last = getLast(head);
-// 	tmp = (t_lst *)malloc(sizeof(t_lst));
-// 	if (!tmp)
-// 		ft_error("No malloc\n");
-// 	tmp->value = value;
-// 	tmp->next = NULL;
-// 	last->next = tmp;
-// }
+	min_value = lst->value;
+	while (lst)
+	{
+		if (min_value > lst->value)
+			min_value = lst->value;
+		lst = lst->next;
+	}
+	return (min_value);
+}

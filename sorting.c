@@ -54,13 +54,25 @@ void	small_stk_sort(t_lst **stack)
 
 void	sorting_stacks(t_lst **a_stk, t_lst **b_stk)
 {
-	int	lst_len;
+	int		lst_len;
+	int		med_value;
+	int		med_len;
 
 	if (is_stk_sorted(*a_stk) == 0)
 		exit (EXIT_SUCCESS);
 	lst_len = lst_size(*a_stk);
-	while (lst_len-- > 3)
-		push_on_stk(b_stk, a_stk, 'b');
+	med_len = lst_len / 2;
+	med_value = ((ft_lstfindmax_val(*a_stk) - ft_lstfindmin_val(*a_stk)) / 2) + 1;
+	while (lst_len > 3)
+	{
+		if (med_value < (*a_stk)->value && lst_len > med_len && med_len > 100)
+			rotate_stk(a_stk, 'a');
+		else
+		{
+			push_on_stk(b_stk, a_stk, 'b');
+			lst_len--;
+		}
+	}
 	small_stk_sort(a_stk);
 	lets_sort(a_stk, b_stk);
 }

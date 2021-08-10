@@ -1,12 +1,14 @@
 # push_swap
 ### push_swap 42 cursus
 
-- Status : project in progress
+- Status : project is working
 - Result : 0%
 
 This is a project to sort data on a stack using a limited set of instructions, using the lowest possible number of steps.
 
-**sorting 100 random numbers in ~ 900 operations**
+**sorting 100 random numbers in ~ 550 operations**
+
+**sorting 500 random numbers in ~ 4650 operations**
 
 **validation of number in ft_atoi_only_for_num**
 
