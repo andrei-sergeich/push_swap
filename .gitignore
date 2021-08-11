@@ -55,11 +55,12 @@ dkms.conf
 .idea/
 .vscode/
 cmake-build-debug
-CMakeLists.txt
+#CMakeLists.txt
 *.code-workspace
 *.pdf
 .DS_Store
 .DS_Store?
+push_swap
 *.py
 checker_Mac
 # .out

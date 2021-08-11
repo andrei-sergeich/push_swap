@@ -1,28 +1,29 @@
 NAME		=	push_swap
 
-SRCS		=	main.c		push_swap.c\
-				sorting.c	lets_sort.c\
-				modes.c\
-				stack_ops_single.c\
-				stack_ops_double.c\
+
+SRCS_MAN	=	./SRCS_MAN/main.c		./SRCS_MAN/push_swap.c\
+				./SRCS_MAN/sorting.c	./SRCS_MAN/lets_sort.c\
+				./SRCS_MAN/modes.c		./SRCS_MAN/find.c\
+				./SRCS_MAN/stack_ops_single.c\
+				./SRCS_MAN/stack_ops_double.c\
 				\
 				\
-				stacks_print.c\
+				./SRCS_MAN/stacks_print.c\
 
 LIB_DIR 	= ./libft
-HEADER 		= ./push_swap.h
+HEADER 		= ./SRCS_MAN/push_swap.h
 
-OBJS		=	$(patsubst %.c,%.o,$(SRCS))
+OBJS_MAN		=	$(patsubst %.c,%.o,$(SRCS_MAN))
 
 OPTFLAGS	=	-O2
-CFLAGS		=	-Wall -Wextra -Werror -g
+CFLAGS		=	-Wall -Wextra -Werror
 
 all:		$(NAME)
 
-$(NAME):	$(OBJS)
+$(NAME):	$(OBJS_MAN)
 			@make -C $(LIB_DIR)
-			gcc $(LIB_DIR)/libft.a $(OBJS) -o $(NAME)
-			clear
+			gcc $(LIB_DIR)/libft.a $(OBJS_MAN) -o $(NAME)
+			@clear
 			@echo all done, my Master!
 
 %.o:		%.c $(HEADER)
@@ -45,14 +46,15 @@ checker:
 			ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checker_Mac $ARG ; ./push_swap $ARG | wc -l
 
 clean:
-			@rm -f $(OBJS)
 			@make clean -C $(LIB_DIR)
-			@echo .o files destroyed, my Master!
+			@rm -f $(OBJS_MAN)
+			@clear
+			@echo OBJS files destroyed, my Master!
 
 fclean:		clean
-			@rm -f $(NAME)
-			@rm -f libft.a
 			@make fclean -C $(LIB_DIR)
+			@rm -f $(NAME)
+			@clear
 			@echo all terminated, my Master!
 
 re:			fclean all
