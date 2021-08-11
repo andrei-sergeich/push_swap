@@ -1,7 +1,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h> 					/* УБЕРИ!!! И НА ПРИНТФЫ ПРОВЕРЬ!!!!!!*/
+# include <stdio.h>						/* NOT FOR INTRA!!!!!! */
 # include <unistd.h>
 # include <stdarg.h>
 # include <stddef.h>
@@ -47,7 +47,7 @@ void	rev_rotate_stk(t_list **stack, char stk_name);
 void	double_rev_rotate_stk(t_list **a_stk, t_list **b_stk);
 void	push_on_stk(t_list **to, t_list **from, char stk_name);
 
-void	stack_print(t_list *stack, char name);	/* УБЕРИ!!! ПОТОМ!!!!!!!!!!!! */
-void	stacks_print(t_list *a, t_list *b);		/* УБЕРИ!!! ПОТОМ!!!!!!!!!!!! */
+void	stack_print(t_list *stack, char name);		/* NOT FOR INTRA!!!!!! */
+void	stacks_print(t_list *a, t_list *b);			/* NOT FOR INTRA!!!!!! */
 
 #endif

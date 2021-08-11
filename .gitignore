@@ -63,6 +63,7 @@ cmake-build-debug
 push_swap
 *.py
 checker_Mac
+checker
 # .out
 # .out?
 # .o
