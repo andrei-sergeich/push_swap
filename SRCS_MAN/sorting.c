@@ -39,8 +39,8 @@ void	sorting_stacks(t_list **a_stk, t_list **b_stk)
 		exit (EXIT_SUCCESS);
 	lst_len = ft_lstsize(*a_stk);
 	med_len = lst_len / 2;
-	med_value = ((ft_lstfindmax_val(*a_stk) - \
-					ft_lstfindmin_val(*a_stk)) / 2) + 1;
+	med_value = ((ft_lstfindmax_val(*a_stk) + \
+					ft_lstfindmin_val(*a_stk))) / 2;
 	while (lst_len > 3)
 	{
 		if (med_value < (*a_stk)->value && lst_len > med_len && med_len > 100)

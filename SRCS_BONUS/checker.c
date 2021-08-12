@@ -32,26 +32,28 @@ void	execute_command(t_list **A, t_list **B, char *line)
 {
 	if (ft_strncmp("sa", line, 3) == 0)
 		swap_stk(A);
-	if (ft_strncmp("sb", line, 3) == 0)
+	else if (ft_strncmp("sb", line, 3) == 0)
 		swap_stk(B);
-	if (ft_strncmp("ss", line, 3) == 0)
+	else if (ft_strncmp("ss", line, 3) == 0)
 		double_swap_stk(A, B);
-	if (ft_strncmp("ra", line, 3) == 0)
+	else if (ft_strncmp("ra", line, 3) == 0)
 		rotate_stk(A);
-	if (ft_strncmp("rb", line, 3) == 0)
+	else if (ft_strncmp("rb", line, 3) == 0)
 		rotate_stk(B);
-	if (ft_strncmp("rr", line, 3) == 0)
+	else if (ft_strncmp("rr", line, 3) == 0)
 		double_rotate_stk(A, B);
-	if (ft_strncmp("rra", line, 4) == 0)
+	else if (ft_strncmp("rra", line, 4) == 0)
 		rev_rotate_stk(A);
-	if (ft_strncmp("rrb", line, 4) == 0)
+	else if (ft_strncmp("rrb", line, 4) == 0)
 		rev_rotate_stk(B);
-	if (ft_strncmp("rrr", line, 4) == 0)
+	else if (ft_strncmp("rrr", line, 4) == 0)
 		double_rev_rotate_stk(A, B);
-	if (ft_strncmp("pa", line, 3) == 0)
+	else if (ft_strncmp("pa", line, 3) == 0)
 		push_on_stk(A, B);
-	if (ft_strncmp("pb", line, 3) == 0)
+	else if (ft_strncmp("pb", line, 3) == 0)
 		push_on_stk(B, A);
+	else
+		ft_error("Error");
 }
 
 void	argv_processing(t_list **A, char **argv, int len)

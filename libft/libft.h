@@ -63,5 +63,6 @@ int		ft_atoi_only_for_num(const char *str);
 int		ft_lstfindmax_val(t_list *lst);
 int		ft_lstfindmin_val(t_list *lst);
 int		ft_lstfind_ind_of_max_value(t_list *lst);
+int		ft_lstfind_ind_of_min_value(t_list *lst);
 
 #endif
