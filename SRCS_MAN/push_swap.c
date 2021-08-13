@@ -57,6 +57,4 @@ void	push_swap(int argc, char **argv)
 	argv_processing(&a_stk, argv, len);
 	duplicate_checker(a_stk);
 	sorting_stacks(&a_stk, &b_stk);
-//	stacks_print(a_stk, b_stk);
-//	stack_print(a_stk, 'A');
 }

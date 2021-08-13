@@ -1,8 +1,8 @@
 # push_swap
 ### push_swap 42 cursus
 
-- Status : project is ready
-- Result : 0%
+- Status : finished
+- Result : 125%
 
 This is a project to sort data on a stack using a limited set of instructions, 
 using the lowest possible number of steps.  

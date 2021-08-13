@@ -96,11 +96,9 @@ void	checker(int argc, char **argv)
 	len = argc - 1;
 	argv_processing(&A, argv, len);
 	duplicate_checker(A);
-//	stacks_print(A, B);
 	while (get_next_line(0, &line))
 	{
 		execute_command(&A, &B, line);
-//		stacks_print(A, B);
 		free(line);
 	}
 	free(line);
@@ -108,5 +106,4 @@ void	checker(int argc, char **argv)
 		ft_putendl_fd("OK", 1);
 	else
 		ft_putendl_fd("KO", 1);
-//	stacks_print(A, B);
 }
